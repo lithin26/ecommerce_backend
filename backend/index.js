@@ -14,7 +14,7 @@ const { error } = require("console");
 app.use(express.json());
 // app.use(cors());
 // Define the origin
-const allowedOrigin = 'https://your-frontend-name.onrender.com'; 
+const allowedOrigin = 'https://frontend1-109f.onrender.com'; 
 
 app.use(cors({
     origin: allowedOrigin,
@@ -48,7 +48,7 @@ app.use('/images',express.static('upload/images'))
 app.post("/upload",upload.single('product'),(req,res)=>{
     res.json({
         success:1,
-        image_url:`http://localhost:${port}/images/${req.file.filename}`
+        image_url:`https://ecommerce-backend-2-hxrj.onrender.com/images/${req.file.filename}`
     })
 })
 
