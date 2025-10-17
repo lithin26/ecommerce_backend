@@ -12,7 +12,15 @@ const { error } = require("console");
 // const { use } = require("react");
 
 app.use(express.json());
-app.use(cors());
+// app.use(cors());
+// Define the origin
+const allowedOrigin = 'https://your-frontend-name.onrender.com'; 
+
+app.use(cors({
+    origin: allowedOrigin,
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Ensure all methods are allowed
+    credentials: true // Crucial if you're using tokens/cookies in future
+}));
 
 //Database Connection With MongoDB
 mongoose.connect("mongodb+srv://lithin:2256@cluster0.vlzc9hk.mongodb.net/Ecommerce");
